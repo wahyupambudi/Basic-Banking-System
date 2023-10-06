@@ -54,7 +54,7 @@
 		</div>
 		
 		<footer>
-			<p>Challange Chapter 1 Bootcamp Binar Academy - Wahyu Pambudi</p>
+			<p>Challange Chapter 2 Bootcamp Binar Academy - Wahyu Pambudi</p>
 		</footer>
 		<script src="bank_account_v2.js" type="text/javascript" charset="utf-8" async defer></script>
 		
@@ -64,8 +64,14 @@
 			elemen.innerHTML = new Intl.NumberFormat("id").format(localStorage.getItem("saldo"));
 		}
 		function resetSaldo() {
-			localStorage.removeItem("saldo");
-			alert("Saldo Berhasil Di Tarik Semua")
+			let value = new Intl.NumberFormat("id").format(localStorage.getItem("saldo"));
+			if( value == 0) {
+				alert("Saldo Gagal Di Tarik")
+			} else {
+				localStorage.removeItem("saldo");
+				alert("Saldo Berhasil Di Tarik Semua")
+			}
+			
 		}
 		
 		let addReload = document.getElementById("addReload");
