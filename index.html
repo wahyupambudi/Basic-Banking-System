@@ -1,0 +1,52 @@
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta name="description" content="Challange 1 - Binar Academy - Bootcamp Backend - Wahyu Pambudi">
+		<meta name="keywords" content="HTML, CSS, JavaScript">
+		<meta name="author" content="wahyup">
+		<title>Challange Chapter 1 - Wahyu Pambudi</title>
+		<style>
+			.buttonMin {
+				background: #EA2929; padding: 10px; border: none; color: white; cursor: pointer; border-radius: 5px;
+			}
+			.buttonMin:hover {
+				background: #BA0B0B;
+			}
+			.buttonPlus {
+				background: #294DEA; padding: 10px; border: none; color: white; cursor: pointer; border-radius: 5px;
+			}
+			.buttonPlus:hover {
+				background: #122FAC;
+			}
+			.box-h2 {
+				border: 1px solid grey;
+				padding: 10px;
+				width: fit-content;
+				background: black;
+				color:white;
+			}
+			footer {
+				position: fixed;
+				left: 0;
+				bottom: 0;
+				width: 100%;
+				text-align: center;
+				background: grey;
+				color:white;
+			}
+		</style>
+	</head>
+	<body>
+		<script src="bank_account.js" type="text/javascript" charset="utf-8" async defer></script>
+		<div align="center">
+			<h1>PROGRAM MENGELOLA SALDO BANK</h1><br>
+			<h2 class="box-h2">Total Saldo = Rp. <span id="saldo"></span></h2><br>
+			<button class="buttonPlus" onclick="bank.tambahSaldo()">Tambah Saldo</button>
+			<button class="buttonMin" onclick="bank.kurangiSaldo()">Kurangi Saldo</button>
+		</div>
+		<footer>
+			<p>Challange Chapter 1 Bootcamp Binar Academy - Wahyu Pambudi</p>
+		</footer>
+	</body>
+</html>
