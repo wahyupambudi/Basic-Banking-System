@@ -47,16 +47,16 @@
 		<div align="center">
 			<h1>PROGRAM MENGELOLA SALDO BANK</h1><br>
 			<h2 class="box-h2">Total Saldo = Rp. <span id="saldo"></span></h2><br>
-			<button class="buttonDeposit" id="addReload">Tambah Saldo</button>
-			<button class="buttonWitdhraw" id="minReload">Kurangi Saldo</button>
+			<button class="buttonDeposit" id="addReload">(+) Tambah Saldo</button>
+			<button class="buttonWitdhraw" id="minReload">(-) Kurangi Saldo</button>
 			<br><br>
-			<button class="buttonReset" id="resetSaldo">Tarik Semua Saldo</button>
+			<button class="buttonReset" onclick="resetSaldo()">(!) Tarik Semua Saldo</button>
 		</div>
 		
 		<footer>
 			<p>Challange Chapter 2 Bootcamp Binar Academy - Wahyu Pambudi</p>
 		</footer>
-		<script src="bank_account_v2.js" type="text/javascript" charset="utf-8" async defer></script>
+		<script src="banking_system.js" type="text/javascript" charset="utf-8" async defer></script>
 		
 		<script>
 		let elemen = document.getElementById("saldo");
@@ -66,17 +66,17 @@
 		function resetSaldo() {
 			let value = new Intl.NumberFormat("id").format(localStorage.getItem("saldo"));
 			if( value == 0) {
-				alert("Saldo Gagal Di Tarik")
+				alert(`Total Saldo Rp.${value}, Saldo Gagal Di Tarik`)
 			} else {
 				localStorage.removeItem("saldo");
-				alert("Saldo Berhasil Di Tarik Semua")
+				alert(`Total Saldo Rp.${value}, Saldo Berhasil Di Tarik Semua`)
+				document.location.reload();
 			}
-			
+			return;
 		}
 		
 		let addReload = document.getElementById("addReload");
 		let minReload = document.getElementById("minReload");
-		let resSaldo = document.getElementById("resetSaldo");
 		
 		addReload.onclick = function() {
 			savingsAccount.deposit()
@@ -85,10 +85,6 @@
 		
 		minReload.onclick = function() {
 			savingsAccount.withdraw()
-			setTimeout(() => {reloadElement()}, 1000);
-		};
-		resSaldo.onclick = function() {
-			resetSaldo()
 			setTimeout(() => {reloadElement()}, 1000);
 		};
 		</script>
