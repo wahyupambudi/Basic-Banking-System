@@ -4,7 +4,7 @@ class BankAccount {
     this.saldo = parseFloat(localStorage.getItem("saldo")) || 0;
   }
 
-  tambahSaldo() {
+  deposit() {
     const inputJumlah = parseFloat(prompt("Masukkan jumlah saldo yang ingin ditambahkan:"));
     if (!isNaN(inputJumlah) && inputJumlah > 0) {
       this.saldo += inputJumlah;
@@ -15,7 +15,7 @@ class BankAccount {
     return;
   }
 
-  kurangiSaldo() {
+  withdraw() {
     const inputPengurangan = parseFloat(prompt("Masukkan jumlah saldo yang ingin dikurangkan:"));
     if (!isNaN(inputPengurangan) && inputPengurangan > 0 && inputPengurangan <= this.saldo) {
       this.saldo -= inputPengurangan;

@@ -7,17 +7,23 @@
 		<meta name="author" content="wahyup">
 		<title>Challange Chapter 1 - Wahyu Pambudi</title>
 		<style>
-			.buttonMin {
-				background: #EA2929; padding: 10px; border: none; color: white; cursor: pointer; border-radius: 5px;
+			.buttonWitdhraw {
+				background: #EAB629; padding: 10px; border: none; color: white; cursor: pointer; border-radius: 5px;
 			}
-			.buttonMin:hover {
-				background: #BA0B0B;
+			.buttonWitdhraw:hover {
+				background: #C19211;
 			}
-			.buttonPlus {
+			.buttonDeposit {
 				background: #294DEA; padding: 10px; border: none; color: white; cursor: pointer; border-radius: 5px;
 			}
-			.buttonPlus:hover {
+			.buttonDeposit:hover {
 				background: #122FAC;
+			}
+			.buttonReset {
+				background: #EA2929; padding: 10px; border: none; color: white; cursor: pointer; border-radius: 5px;
+			}
+			.buttonReset:hover {
+				background: #BA0B0B;
 			}
 			.box-h2 {
 				border: 1px solid grey;
@@ -38,15 +44,47 @@
 		</style>
 	</head>
 	<body>
-		<script src="bank_account.js" type="text/javascript" charset="utf-8" async defer></script>
 		<div align="center">
 			<h1>PROGRAM MENGELOLA SALDO BANK</h1><br>
 			<h2 class="box-h2">Total Saldo = Rp. <span id="saldo"></span></h2><br>
-			<button class="buttonPlus" onclick="bank.tambahSaldo()">Tambah Saldo</button>
-			<button class="buttonMin" onclick="bank.kurangiSaldo()">Kurangi Saldo</button>
+			<button class="buttonDeposit" id="addReload">Tambah Saldo</button>
+			<button class="buttonWitdhraw" id="minReload">Kurangi Saldo</button>
+			<br><br>
+			<button class="buttonReset" id="resetSaldo">Tarik Semua Saldo</button>
 		</div>
+		
 		<footer>
 			<p>Challange Chapter 1 Bootcamp Binar Academy - Wahyu Pambudi</p>
 		</footer>
+		<script src="bank_account_v2.js" type="text/javascript" charset="utf-8" async defer></script>
+		
+		<script>
+		let elemen = document.getElementById("saldo");
+		function reloadElement() {
+			elemen.innerHTML = new Intl.NumberFormat("id").format(localStorage.getItem("saldo"));
+		}
+		function resetSaldo() {
+			localStorage.removeItem("saldo");
+			alert("Saldo Berhasil Di Tarik Semua")
+		}
+		
+		let addReload = document.getElementById("addReload");
+		let minReload = document.getElementById("minReload");
+		let resSaldo = document.getElementById("resetSaldo");
+		
+		addReload.onclick = function() {
+			savingsAccount.deposit()
+			setTimeout(() => {reloadElement()}, 1000);
+		};
+		
+		minReload.onclick = function() {
+			savingsAccount.withdraw()
+			setTimeout(() => {reloadElement()}, 1000);
+		};
+		resSaldo.onclick = function() {
+			resetSaldo()
+			setTimeout(() => {reloadElement()}, 1000);
+		};
+		</script>
 	</body>
 </html>
