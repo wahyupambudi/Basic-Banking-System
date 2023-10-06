@@ -42,7 +42,32 @@ Challenge Chapter 2 - Basic Banking System - Bootcamp Backend Binar Academy
 - Gunakan fungsi setTimeout() untuk mensimulasikan operasi transaksi yang asynchronous. Misalnya, setelah melakukan deposit atau withdrawal, Anda dapat menunda eksekusi selama beberapa detik sebelum mengembalikan hasil operasi.
 
 ## Pseudocode
+```bash
+  Membuat Kelas BankAccount:
+    Fungsi Konstruktor():
+        saldo = 0
 
+    Fungsi deposit():
+        Input jumlahUang
+        Jika jumlahUang adalah angka positif:
+            Simulasikan operasi asynchronous dengan penundaan 1 detik
+            #saldo += jumlahUang
+            Output "Anda berhasil mendepositkan jumlahUang. Saldo Anda sekarang: #saldo"
+        Lainnya:
+            Output "Jumlah deposit tidak valid."
+
+    Fungsi withdraw():
+        Input jumlahUang
+        Jika jumlahUang adalah angka positif dan kurang dari atau sama dengan #saldo:
+            Simulasikan operasi asynchronous dengan penundaan 1 detik
+            #saldo -= jumlahUang
+            Output "Anda berhasil menarik jumlahUang. Saldo Anda sekarang: #saldo"
+        Jika jumlahUang lebih besar dari #saldo:
+            Output "Saldo tidak mencukupi untuk penarikan."
+        Lainnya:
+            Output "Jumlah penarikan tidak valid."
+```
+    
 
 ## Flowchart
 
